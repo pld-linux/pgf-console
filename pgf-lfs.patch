@@ -1,0 +1,26 @@
+--- pgf/configure.ac.orig	2014-07-31 18:42:18.587940134 +0200
++++ pgf/configure.ac	2014-07-31 18:43:28.147937202 +0200
+@@ -28,6 +28,7 @@ AM_INIT_AUTOMAKE(pgf,6.14.12)
+ AC_PROG_LIBTOOL
+ AM_CONFIG_HEADER( config.h )
+ AC_PROG_CXX
++AC_SYS_LARGEFILE
+ 
+ AC_CHECK_PROG(DOTFOUND,dot, "YES", "NO")
+ 
+--- pgf/src/PGF.cpp.orig	2014-03-21 13:15:17.000000000 +0100
++++ pgf/src/PGF.cpp	2014-07-31 18:43:56.964602673 +0200
+@@ -81,10 +81,10 @@ static string errorMsg[] = {
+ };
+ 
+ /////////////////////////////////////////////////////////////////////////////
+-static __int64 FileSize(char *filename) {
+-	struct __stat64 data;
++static off_t FileSize(const char *filename) {
++	struct stat data;
+ 
+- 	if (_stat64(filename, &data) != -1) {
++ 	if (stat(filename, &data) != -1) {
+ 		return data.st_size;
+ 	} else {
+ 		return 0;
