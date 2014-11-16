@@ -2,7 +2,7 @@ Summary:	PGF (Progressive Graphics File) console application
 Summary(pl.UTF-8):	Aplikacja terminalowa do obsługi plików PGF (Progressive Graphics File)
 Name:		pgf-console
 Version:	6.14.12
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://downloads.sourceforge.net/libpgf/%{name}-src-%{version}.tar.gz
