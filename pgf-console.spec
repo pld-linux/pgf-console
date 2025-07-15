@@ -31,7 +31,7 @@ pgf to aplikacja terminalowa do pracy z plikami obrazów PGF
 %prep
 %setup -q -n pgf
 %undos configure.ac
-%patch0 -p1
+%patch -P0 -p1
 
 # disable doxygen docs, useless for program package
 %{__sed} -i -e '/^SUBDIRS/s/ doc//' Makefile.am
